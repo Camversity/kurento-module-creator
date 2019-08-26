@@ -41,7 +41,7 @@ set(${name}_INCLUDE_DIRS
 
 if (NOT "@_INTERFACE_GENERATED_HEADERS@ @_INTERFACE_INTERNAL_GENERATED_HEADERS@" STREQUAL " ")
   if (TARGET ${name_lower}interface)
-    set (${name}_INTERFACE_INCLUDE_DIR "<#noparse>$</#noparse>{${name}_SOURCE_DIR_PREFIX}/@_INTERFACE_HEADERS_DIR@")
+    set (${name}_INTERFACE_INCLUDE_DIR "@_INTERFACE_HEADERS_DIR@")
   else ()
     find_path(${name}_INTERFACE_INCLUDE_DIR
       NAMES
@@ -59,7 +59,7 @@ endif ()
 
 if (NOT "@_SERVER_INTERNAL_GENERATED_HEADERS@" STREQUAL "")
   if (TARGET ${name_lower}impl)
-    set (${name}_IMPLEMENTATION_INTERNAL_INCLUDE_DIR "<#noparse>$</#noparse>{${name}_SOURCE_DIR_PREFIX}/@_SERVER_INTERNAL_GENERATED_HEADERS_DIR@")
+    set (${name}_IMPLEMENTATION_INTERNAL_INCLUDE_DIR "@_SERVER_INTERNAL_GENERATED_HEADERS_DIR@")
   else ()
     find_path(${name}_IMPLEMENTATION_INTERNAL_INCLUDE_DIR
       NAMES
